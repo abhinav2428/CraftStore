@@ -3,11 +3,12 @@ import {Link} from 'react-router-dom';
 import styles from '../../styles/styles';
 import Logoimg from '../../Assets/logoimg2.png'
 import {categoriesData, productData} from "../../static/data";
-import {AiOutlineSearch} from "react-icons/ai";
+import {AiOutlineSearch, AiOutlineHeart, AiOutlineShoppingCart,} from "react-icons/ai";
 import {IoIosArrowForward ,IoIosArrowDown} from "react-icons/io";
 import {BiMenuAltLeft} from "react-icons/bi";
 import DropDown from "./DropDown";
 import Navbar from "./Navbar";
+import { CgProfile } from "react-icons/cg";
 
 const Header = ({activeHeading}) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -94,7 +95,7 @@ const Header = ({activeHeading}) => {
         <div className={`${styles.section} relative ${styles.normalFlex} justify-between`}>
           {/* categories */}
           <div onClick={() => setDropDown(!dropDown)}>
-            <div className="relative h-[60px] mt-[10px] w-[270px] 1000px:">
+            <div className="relative h-[60px] mt-[10px] w-[270px] 1000px:block">
               <BiMenuAltLeft size={30} className="absolute top-3 left-2" />
                 <button 
                 className={`h-[100%] w-full flex justify-between items-center pl-10 bg-white font-sans text-lg font-[500] select-none rounded-t-md`}>
@@ -114,10 +115,40 @@ const Header = ({activeHeading}) => {
                   ) : null }
             </div>
           </div>
+
           {/* navitems */}
           <div className={`${styles.normalFlex}`}>
             <Navbar active={activeHeading}/>
           </div>
+          
+          <div className="flex">
+            <div className={`${styles.normalFlex}`}>
+              <div className="relative cursor-pointer mr-[15px]">
+                <AiOutlineHeart size={30} color="rgb(255 255 255 / 83%)" />
+                <span className="absolute right-0 top-0 rounded-full bg-[#617A55] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+                  0
+                </span>
+              </div>
+            </div>
+
+            <div className={`${styles.normalFlex}`}>
+              <div className="relative cursor-pointer mr-[15px]">
+                <AiOutlineShoppingCart size={30} color="rgb(255 255 255 / 83%)" />
+                <span className="absolute right-0 top-0 rounded-full bg-[#617A55] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+                  1
+                </span>
+              </div>
+            </div>
+
+            <div className={`${styles.normalFlex}`}>
+              <div className="relative cursor-pointer mr-[15px]">
+                  <Link to ="/login">
+                  <CgProfile size={30} color="rgb(255 255 255 / 83%)" />
+                  </Link>
+              </div>
+            </div>
+          </div>
+    
         </div>
       </div>
     </>

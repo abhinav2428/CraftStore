@@ -15,7 +15,7 @@ if(process.env.NODE_ENV!== "PRODUCTION"){
 
 connectdb();
 const server=app.listen(process.env.PORT,()=>{
-    console.log(`SERVER IS RUNNING ON PORT:${process.env.PORT}`)
+    console.log(`sERVER IS RUNNING ON PORT:${process.env.PORT}`)
 })
 
 process.on("unhandledRejection",(err)=>{
